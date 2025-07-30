@@ -1,26 +1,48 @@
 @import "tailwindcss";
 
+/* Color theme variables for the modern notes app */
 :root {
-  --background: #ffffff;
+  --background: #fff;
   --foreground: #171717;
+  --primary: #1976d2;
+  --accent: #ffca28;
+  --secondary: #424242;
+
+  --sidebar-bg: #f5f7fa;
+  --note-bg: #fbfbfc;
+  --border: #ececec;
 }
 
+/* Font/typography variables for Geist font family */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-secondary: var(--secondary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
+/* Override in dark, but default is light. */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --sidebar-bg: #10151b;
+    --note-bg: #181c22;
+    --border: #20232A;
   }
 }
 
-body {
+html, body {
+  height: 100%;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
 }
